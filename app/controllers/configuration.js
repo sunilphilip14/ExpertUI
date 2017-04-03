@@ -29,6 +29,29 @@ appController.controller('ConfigRedirectController', function ($routeParams, $lo
 });
 
 /**
+* Configuration controller
+* @author Martin Vach
+*/
+// Redirect to new version of configuration
+appController.controller('ConfigBaseController', function ($routeParams, $location, $cookies, $filter, dataService,deviceService) {
+    $scope.devices = [];
+
+    // Load data
+    $scope.loadData = function () {
+        dataService.loadZwaveApiData().then(function (ZWaveAPIData) {
+            $scope.devices = deviceService.configGetNav(ZWaveAPIData);
+            if(_.isEmpty($scope.devices)){
+                $scope.alert = {message: $scope._t('device_404'), status: 'alert-warning', icon: 'fa-exclamation-circle'};
+                return;
+            }
+        }, function (error) {
+            alertify.alertError($scope._t('error_load_data'));
+        });
+    };
+    $scope.loadData();
+});
+
+/**
  * Load device XML file
  * @class LoadDeviceXmlController
  *
