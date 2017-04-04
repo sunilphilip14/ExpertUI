@@ -8,7 +8,7 @@
  * @class ConfigFirmwareController
  *
  */
-appController.controller('ConfigFirmwareController', function ($scope, $routeParams, $location, $cookies, $timeout, $filter, $interval, $anchorScroll, cfg, dataService, deviceService) {
+appController.controller('ConfigFirmwareController', function ($scope, $routeParams, $location, $cookies, $timeout, $filter, $interval, cfg, dataService, deviceService) {
     $scope.devices = [];
     $scope.deviceName = '';
     $scope.deviceId = 0;
@@ -92,38 +92,12 @@ appController.controller('ConfigFirmwareController', function ($scope, $routePar
         $scope.firmware.interval = $interval(refresh, $scope.cfg.interval);
     };
 
-    $scope.gotoBottom = function (){
-
-        // set the location.hash to the id of
-        // the element you wish to scroll to.
-        $location.hash('bottom');
-
-        // call $anchorScroll()
-        $anchorScroll();
-    };
-
-    $timeout(function() {
-        $anchorScroll('anchor7');
-    });
-
     // todo: deprecated
-    $scope.changeDevice = function (index,deviceId) {
-        console.log(index);
-        var newHash = 'anchor' + index;
-        if ($location.hash() !== newHash) {
-            // set the $location.hash to `newHash` and
-            // $anchorScroll will automatically scroll to it
-            $location.hash('anchor' + index);
-        } else {
-            // call $anchorScroll() explicitly,
-            // since $location.hash hasn't changed
-            $anchorScroll();
-        }
-        return;
+   /* $scope.changeDevice = function (deviceId) {
         if (deviceId > 0) {
             $location.path($scope.activeUrl + deviceId);
         }
-    };
+    };*/
     /**
      * Handles device firmware update
      * @param {object} input
