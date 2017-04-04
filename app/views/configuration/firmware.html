@@ -4,7 +4,15 @@
     <div ng-include="'app/views/configuration/navi.html'"></div>
     <div class="row row-configuration">
         <div class="col-md-3 menu-vertical">
-            <div ng-include="'app/views/configuration/menu.html'"></div>
+            <!--<div ng-include="'app/views/configuration/menu.html'"></div>-->
+            <ul class="list-group">
+                <li><a ng-click="gotoBottom()">Go to bottom</a></li>
+                <li class="list-group-item clickable" title="{{v.name }}"
+                    ng-repeat="v in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]">
+                    <a ng-click="changeDevice($index)" id="anchor{{$index}}" class="anchor">ITEM {{$index}}</a>
+                </li>
+                <li id="bottom"> You're at the bottom!</li>
+            </ul>
         </div>
         <div class="col-md-9 col-content">
             <bb-alert alert="alert"></bb-alert>
