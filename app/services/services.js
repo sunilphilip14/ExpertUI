@@ -57,8 +57,9 @@ appService.service('deviceService', function($filter, $log, $cookies,$window,$lo
      * @returns {Array|Boolean}
      */
     this.getUser = function () {
-        var user = ($cookies.user && !!$cookies.user && $cookies.user !== 'undefined' ? angular.fromJson($cookies.user) : false);
-        return user;
+        return ($cookies.get('user') ? angular.fromJson($cookies.get('user')) : false);
+        //var user = ($cookies.user && !!$cookies.user && $cookies.user !== 'undefined' ? angular.fromJson($cookies.user) : false);
+        //return user;
     };
 
     /**
@@ -68,9 +69,11 @@ appService.service('deviceService', function($filter, $log, $cookies,$window,$lo
      */
     this.setUser = function (data) {
         if (data && !!data) {
-            $cookies.user = angular.toJson(data);
+            //$cookies.user = angular.toJson(data);
+            $cookies.put('user',angular.toJson(data));
         } else {
-            delete $cookies['user'];
+           // delete $cookies['user'];
+            $cookies.remove('user');
             return false;
         }
         return data;
@@ -90,7 +93,8 @@ appService.service('deviceService', function($filter, $log, $cookies,$window,$lo
      * @returns {string}
      */
     this.getZWAYSession = function () {
-        return $cookies.ZWAYSession;
+        return $cookies.get('ZWAYSession');
+        //return $cookies.ZWAYSession;
     };
     /**
      * Set ZWAY session
@@ -99,9 +103,12 @@ appService.service('deviceService', function($filter, $log, $cookies,$window,$lo
      */
     this.setZWAYSession = function (sid) {
         if (sid && !!sid) {
-            $cookies.ZWAYSession = sid;
+            //$cookies.ZWAYSession = sid;
+            $cookies.put('ZWAYSession',sid);
+            //ZWAYSession
         } else {
-            delete $cookies['ZWAYSession'];
+            //delete $cookies['ZWAYSession'];
+            $cookies.remove('ZWAYSession');
             return false;
         }
     };

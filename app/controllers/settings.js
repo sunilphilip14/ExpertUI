@@ -23,7 +23,8 @@ appController.controller('SettingsLangController', function ($scope, $timeout,$w
                 dataService.postApi('configupdate_url', input).then(function (response) {
                     deviceService.showNotifier({message: $scope._t('reloading')});
                     deviceService.showNotifier({message: $scope._t('update_successful')});
-                    $cookies.lang = lang;
+                    $cookies.put('lang',lang);
+                    //$cookies.lang = lang;
                     $scope.lang = lang;
                     $timeout( function() {
                         $window.location.reload();
@@ -35,7 +36,8 @@ appController.controller('SettingsLangController', function ($scope, $timeout,$w
             })
             .set('oncancel', function (closeEvent) {
                 deviceService.showNotifier({message: $scope._t('reloading')});
-                $cookies.lang = lang;
+                //$cookies.lang = lang;
+                $cookies.put('lang',lang);
                 $scope.lang = lang;
                 $timeout( function() {
                     $window.location.reload();

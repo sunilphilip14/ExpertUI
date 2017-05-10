@@ -27,7 +27,8 @@ appController.controller('DongleController', function($scope, $window,$cookies,c
             return;
         }
         angular.extend($scope.cfg,{dongle: $scope.homeDongle.model.dongle});
-        $cookies.dongle = $scope.homeDongle.model.dongle;
+        //$cookies.dongle = $scope.homeDongle.model.dongle;
+        $cookies.put('dongle',$scope.homeDongle.model.dongle);
         $window.location.reload();
     };
 });

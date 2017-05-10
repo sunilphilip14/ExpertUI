@@ -15,8 +15,10 @@ appController.controller('ConfigHealthController', function ($scope, $routeParam
     $scope.deviceId = 0;
     //$scope.activeTab = 'health';
     $scope.activeUrl = 'configuration/health/';
-    $cookies.tab_config = 'health';
-    $cookies.interval = 'health';
+   /* $cookies.tab_config = 'health';
+    $cookies.interval = 'health';*/
+    $cookies.put('tab_config','health');
+    $cookies.put('interval','health');
     $scope.health = {
         ctrlNodeId: 1,
         alert: {message: false, status: 'is-hidden', icon: false},
@@ -82,8 +84,10 @@ appController.controller('ConfigHealthController', function ($scope, $routeParam
             $scope.health.device.neighbours = $filter('hasNode')(node.data, 'neighbours.value');
 
             // Remember device id
-            $cookies.configuration_id = $routeParams.nodeId;
-            $cookies.config_url = $scope.activeUrl + $routeParams.nodeId;
+            //$cookies.configuration_id = $routeParams.nodeId;
+            //$cookies.config_url = $scope.activeUrl + $routeParams.nodeId;
+            $cookies.put('configuration_id',$routeParams.nodeId);
+            $cookies.put('config_url',$scope.activeUrl +$routeParams.nodeId);
             $scope.deviceId = $routeParams.nodeId;
             $scope.health.device.node = node;
             $scope.deviceName = $filter('deviceName')($routeParams.nodeId, node);

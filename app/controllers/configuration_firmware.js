@@ -14,7 +14,8 @@ appController.controller('ConfigFirmwareController', function ($scope, $routePar
     $scope.deviceId = 0;
     //$scope.activeTab = 'firmware';
     $scope.activeUrl = 'configuration/firmware/';
-    $cookies.tab_config = 'firmware';
+    //$cookies.tab_config = 'firmware';
+    $cookies.put('tab_config','firmware');
 
     $scope.firmware = {
         show: false,
@@ -58,8 +59,10 @@ appController.controller('ConfigFirmwareController', function ($scope, $routePar
                 return;
             }
             // Remember device id
-            $cookies.configuration_id = nodeId;
-            $cookies.config_url = $scope.activeUrl + nodeId;
+            /*$cookies.configuration_id = nodeId;
+            $cookies.config_url = $scope.activeUrl + nodeId;*/
+            $cookies.put('configuration_id',nodeId);
+            $cookies.put('config_url',$scope.activeUrl + nodeId);
             $scope.deviceId = nodeId;
             $scope.deviceName = $filter('deviceName')(nodeId, node);
 

@@ -14,7 +14,8 @@ appController.controller('ConfigAssocController', function($scope, $filter, $rou
     $scope.deviceId = 0;
     //$scope.activeTab = 'association';
     $scope.activeUrl = 'configuration/association/';
-    $cookies.tab_config = 'association';
+    //$cookies.tab_config = 'association';
+    $cookies.put('tab_config','association');
 
     $scope.alert = {message: false, status: 'is-hidden', icon: false};
     // Assoc vars
@@ -81,8 +82,10 @@ appController.controller('ConfigAssocController', function($scope, $filter, $rou
             });
             $scope.input.nodeId = nodeId;
 
-            $cookies.configuration_id = nodeId;
-            $cookies.config_url = $scope.activeUrl + nodeId;
+            /*$cookies.configuration_id = nodeId;
+            $cookies.config_url = $scope.activeUrl + nodeId;*/
+            $cookies.put('configuration_id',nodeId);
+            $cookies.put('config_url',$scope.activeUrl + nodeId);
             $scope.deviceId = nodeId;
             $scope.deviceName = $filter('deviceName')(nodeId, node);
             dataService.getCfgXml().then(function (cfgXml) {

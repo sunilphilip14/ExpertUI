@@ -13,7 +13,8 @@ appController.controller('ConfigConfigurationController', function ($scope, $rou
     $scope.deviceId = 0;
     //$scope.activeTab = 'configuration';
     $scope.activeUrl = 'configuration/configuration/';
-    $cookies.tab_config = 'configuration';
+    //$cookies.tab_config = 'configuration';
+    $cookies.put('tab_config','configuration');
     $scope.reset = function () {
         $scope.devices = angular.copy([]);
     };
@@ -69,8 +70,10 @@ appController.controller('ConfigConfigurationController', function ($scope, $rou
                 return devices;
             };
 
-            $cookies.configuration_id = nodeId;
-            $cookies.config_url = $scope.activeUrl + nodeId;
+            /*$cookies.configuration_id = nodeId;
+            $cookies.config_url = $scope.activeUrl + nodeId;*/
+            $cookies.put('configuration_id',nodeId);
+            $cookies.put('config_url',$scope.activeUrl + nodeId);
             $scope.deviceId = nodeId;
             $scope.deviceName = $filter('deviceName')(nodeId, node);
 

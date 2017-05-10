@@ -14,7 +14,8 @@ appController.controller('ConfigInterviewController', function ($scope, $routePa
     $scope.deviceId = 0;
     //$scope.activeTab = 'interview';
     $scope.activeUrl = 'configuration/interview/';
-    $cookies.tab_config = 'interview';
+    //$cookies.tab_config = 'interview';
+    $cookies.put('tab_config','interview');
     $scope.modelSelectZddx = false;
     $scope.zwaveInterview = {
         interval: null,
@@ -54,8 +55,10 @@ appController.controller('ConfigInterviewController', function ($scope, $routePa
             //check if node is controller
             $scope.isController = parseInt(nodeId, 10) === cfg.controller.zwayNodeId;
 
-            $cookies.configuration_id = nodeId;
-            $cookies.config_url = $scope.activeUrl + nodeId;
+            /*$cookies.configuration_id = nodeId;
+            $cookies.config_url = $scope.activeUrl + nodeId;*/
+            $cookies.put('configuration_id',nodeId);
+            $cookies.put('config_url',$scope.activeUrl + nodeId);
             $scope.deviceId = nodeId;
             $scope.deviceName = $filter('deviceName')(nodeId, node);
             //hide interview if node is controller

@@ -47,14 +47,7 @@ appController.controller('BaseController', function ($scope, $rootScope, $cookie
 // Lang settings
     $scope.lang_list = cfg.lang_list;
     // Set language
-    $scope.lang = (angular.isDefined($cookies.lang) ? $cookies.lang : cfg.lang);
-    //TODO: deprecated
-    /*$('.current-lang').html($scope.lang);
-    $scope.changeLang = function (lang) {
-        $window.alert($scope._t('language_select_reload_interface'));
-        $cookies.lang = lang;
-        $scope.lang = lang;
-    };*/
+    $scope.lang = $cookies.get('lang')||cfg.lang;
     // Load language files
     $scope.loadLang = function (lang) {
         // Is lang in language list?
@@ -322,7 +315,8 @@ appController.controller('BaseController', function ($scope, $rootScope, $cookie
         dataService.getApi('zwave_list').then(function (response) {
            if (response.data.length === 1) {
                 angular.extend(cfg, {dongle: response.data[0]});
-                $cookies.dongle = response.data[0];
+                //$cookies.dongle = response.data[0];
+               $cookies.put('dongle',response.data[0]);
             }
                 angular.extend(cfg,{dongle_list: response.data});
 

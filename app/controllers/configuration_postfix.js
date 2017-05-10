@@ -14,7 +14,8 @@ appController.controller('ConfigPostfixController', function ($scope, $routePara
     $scope.deviceName = '';
     //$scope.activeTab = 'postfix';
     $scope.activeUrl = 'configuration/postfix/';
-    $cookies.tab_config = 'postfix';
+    //$cookies.tab_config = 'postfix';
+    $cookies.put('tab_config','postfix');
     $scope.postfix = {
         find: false,
         interview: {
@@ -54,8 +55,10 @@ appController.controller('ConfigPostfixController', function ($scope, $routePara
                 return;
             }
 
-            $cookies.configuration_id = nodeId;
-            $cookies.config_url = $scope.activeUrl + nodeId;
+           /* $cookies.configuration_id = nodeId;
+            $cookies.config_url = $scope.activeUrl + nodeId;*/
+            $cookies.put('configuration_id',nodeId);
+            $cookies.put('config_url',$scope.activeUrl + nodeId);
             $scope.deviceId = nodeId;
             $scope.deviceName = $filter('deviceName')(nodeId, node);
             $scope.postfix.model.p_id = getPId(node);

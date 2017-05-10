@@ -23,8 +23,8 @@ appController.controller('ConfigCommandsController', function ($scope, $routePar
     //$scope.activeTab = 'commands';
     $scope.activeUrl = 'configuration/commands/';
 
-    $cookies.tab_config =  'commands';
-
+    //$cookies.tab_config =  'commands';
+    $cookies.put('tab_config','commands');
     /**
      * Cancel interval on page destroy
      */
@@ -71,8 +71,10 @@ appController.controller('ConfigCommandsController', function ($scope, $routePar
                 return devices;
             };
             $scope.interviewCommands = deviceService.configGetInterviewCommands(node, ZWaveAPIData.updateTime);
-            $cookies.configuration_id = nodeId;
-            $cookies.config_url = $scope.activeUrl + nodeId;
+            /*$cookies.configuration_id = nodeId;
+            $cookies.config_url = $scope.activeUrl + nodeId;*/
+            $cookies.put('configuration_id',nodeId);
+            $cookies.put('config_url',$scope.activeUrl + nodeId);
             $scope.deviceId = nodeId;
             $scope.deviceName = $filter('deviceName')(nodeId, node);
             setData(ZWaveAPIData, node);

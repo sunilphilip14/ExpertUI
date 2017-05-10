@@ -26,8 +26,8 @@ angApp.run(function run($cookies, $rootScope) {
     // Run ubderscore js in views
     $rootScope._ = _;
 
-    if ($cookies.dongle) {
-        angular.extend(config_data.cfg, {dongle: $cookies.dongle});
+    if ($cookies.get('dongle')) {
+        angular.extend(config_data.cfg, {dongle: $cookies.get('dongle')});
         angular.extend(config_data.cfg, {
             update_url: '/ZWave.' + config_data.cfg.dongle + '/Data/',
             store_url: '/ZWave.' + config_data.cfg.dongle + '/Run/',
