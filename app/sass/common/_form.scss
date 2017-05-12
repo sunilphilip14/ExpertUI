@@ -101,6 +101,11 @@ fieldset, .fieldset{
 .isrequired::before { 
     content: "*";
 }
+.valid-error{
+    margin: $spacing-half 0 0 0;
+    font-weight: bold;
+    color: $app-brand-danger;
+}
 
 .form-control-sm{
     width: 30% !important;

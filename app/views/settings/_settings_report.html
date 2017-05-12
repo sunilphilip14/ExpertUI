@@ -3,7 +3,7 @@
     <i class="fa fa-bug fa-fw"></i>&nbsp;{{_t('nav_report')}}
     <i class="fa accordion-arrow" ng-class="expand.report  ? 'fa-chevron-up':'fa-chevron-down'"></i>
 </h2>
- <div class="accordion-entry-ctrl" ng-if_="expand.report"  ng-controller="SettingsReportController">
+ <div class="accordion-entry-ctrl" ng-if="expand.report"  ng-controller="SettingsReportController">
       <bb-loader></bb-loader>
     <form name="form_report" id="form_profile" class="form form-page" ng-submit="sendReport(form_report,input)" novalidate>
         <fieldset>
@@ -11,21 +11,14 @@
 
             <!-- content -->
                 <div class="form-group">
-                    <textarea name="content" id="content" class="form-control report-content" ng-model="input.content" ng-required="true"></textarea>
-                    <div ng-messages="form_report.content.$error" ng-if="form_report.content.$touched">
-                        <p class="valid-error" ng-message="required">{{_t('field_required')}}</p>
-                    </div>
-                    <!--<bb-validator input-name='form_report.content.$error.required' trans='_t("field_required")' has-blur='contentBlur'></bb-validator> -->
+                    <textarea name="content" id="content" class="form-control report-content" ng-blur="contentBlur = true" ng-model="input.content" ng-required="true"></textarea>
+                    <bb-validator input-name='form_report.content.$error.required' trans='_t("field_required")' has-blur='contentBlur'></bb-validator> 
                 </div>
             <!-- email -->
                  <div class="form-group form-inline">
                         <label>{{_t('lb_email')}}: </label>
-                        <input name="email" id="email" type="email" class="form-control" value="{{input.email}}" ng-model="input.email" ng-required="true" />
-                     <div ng-messages="form_report.email.$error" ng-if="form_report.email.$touched">
-                         <p class="valid-error" ng-message="required">{{_t('field_required')}}</p>
-                         <p class="valid-error" ng-message="email">{{_t('email_invalid')}}</p>
-                     </div>
-                        <!--<bb-validator input-name='form_report.email.$error.required' trans='_t("email_invalid")' has-blur='emailBlur'></bb-validator>-->
+                        <input name="email" id="email" type="email" class="form-control" value="{{input.email}}" ng-blur="emailBlur = true" ng-model="input.email" ng-required="true" />
+                        <bb-validator input-name='form_report.email.$error.required' trans='_t("email_invalid")' has-blur='emailBlur'></bb-validator> 
                     </div>
             <!-- log -->
             <div class="form-group form-inline last">

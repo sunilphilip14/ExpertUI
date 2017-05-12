@@ -14778,17 +14778,24 @@ fieldset, .fieldset {
   content: "*";
 }
 
-/* line 105, ../sass/common/_form.scss */
+/* line 104, ../sass/common/_form.scss */
+.valid-error {
+  margin: 5px 0 0 0;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+/* line 110, ../sass/common/_form.scss */
 .form-control-sm {
   width: 30% !important;
 }
 
-/* line 109, ../sass/common/_form.scss */
+/* line 114, ../sass/common/_form.scss */
 .form-control-md {
   width: 50% !important;
 }
 
-/* line 113, ../sass/common/_form.scss */
+/* line 118, ../sass/common/_form.scss */
 .submit-entry {
   text-align: right;
   display: block;
@@ -14796,23 +14803,23 @@ fieldset, .fieldset {
   border-top: solid 1px #9fd8ef;
 }
 
-/* line 121, ../sass/common/_form.scss */
+/* line 126, ../sass/common/_form.scss */
 fieldset.submit-entry {
   margin: 0 !important;
 }
 
-/* line 124, ../sass/common/_form.scss */
+/* line 129, ../sass/common/_form.scss */
 .form-control-hidden {
   display: none !important;
 }
 
-/* line 127, ../sass/common/_form.scss */
+/* line 132, ../sass/common/_form.scss */
 .form-control-img {
   cursor: pointer;
   border: solid 4px transparent;
 }
 
-/* line 132, ../sass/common/_form.scss */
+/* line 137, ../sass/common/_form.scss */
 .control-active {
   border: solid 4px black !important;
 }
@@ -17072,3 +17079,5 @@ http://codepen.io/MattIn4D/pen/LiKFC
 /*@media print {
   @import "modules/_print";
 }*/
+
+/*# sourceMappingURL=main.css.map */
