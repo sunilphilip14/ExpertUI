@@ -173,6 +173,10 @@ appController.controller('ControlController', function ($scope, $interval, $time
      * Get block of DSK
      */
     $scope.dskBlock = function(publicKey, block) {
+        if(!publicKey){
+            return '';
+        }
+        console.log(publicKey, block)
         return (publicKey[(block - 1) * 2] * 256 + publicKey[(block - 1) * 2 + 1]);
     };
 
@@ -972,4 +976,20 @@ appController.controller('SetPromiscuousModeController', function ($scope) {
     $scope.setPromiscuousMode = function (cmd) {
         $scope.runZwaveCmd(cmd, 1000, true);
     };
+});
+
+/**
+ * This tests QR code
+ * @class QrCodeController
+ *
+ */
+appController.controller('QrCodeController', function ($scope) {
+    var qrcode = new QRCode("qrcode_network", {
+        text: "this is my QR code",
+        width: 200,
+        height: 200,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
 });
