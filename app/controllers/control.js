@@ -980,10 +980,10 @@ appController.controller('SetPromiscuousModeController', function ($scope) {
 
 /**
  * This tests QR code
- * @class QrCodeController
+ * @class S2DskController
  *
  */
-appController.controller('QrCodeController', function ($scope) {
+appController.controller('S2DskController', function ($scope) {
     var qrcode = new QRCode("qrcode_network", {
         text: "this is my QR code",
         width: 200,
