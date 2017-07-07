@@ -329,21 +329,25 @@ a, .order-by {
     }
 }
 
-/* QR code
+/* Security 2 icons
 -------------------------------------------------- */
-.qrcode-wrap{
-    margin: 0 auto;
-    #qrcode_network{
-        margin: $spacing-double auto 0 auto;
-        //width: 200px;
-        text-align: center;
-        img {
-            padding-left: 0;
-            padding-right: 0;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            width: 200px;
+.security-2{
+    &.fa-stack{
+        width: 1em;
+    }
+    .fa-stack-1x,.fa-stack-1x{
+        text-align: left;
+    }
+    .icon-bottom{
+        color: darkgray;
+    }
+    .icon-top{
+        color: green;
+        left:4px; top:4px;
+    }
+    &.false{
+        .icon-top{
+            color: #a94442;
         }
     }
 }

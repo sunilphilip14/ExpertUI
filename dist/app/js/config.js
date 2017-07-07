@@ -9,7 +9,7 @@ var config_data = {
         'dev_host': [],
         'app_name': 'Z-Wave Expert',
         'app_version': '1.3.0',
-        'app_built': '03-07-2017 14:49:12',
+        'app_built': '07-07-2017 10:23:11',
         'app_id': 'ExpertUI',
         'custom_ip': false,
         'user_field': 'USERXXXX',

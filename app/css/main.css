@@ -13647,25 +13647,29 @@ a:focus, .order-by:focus {
   display: none;
 }
 
-/* QR code
+/* Security 2 icons
 -------------------------------------------------- */
-/* line 334, ../sass/common/_body.scss */
-.qrcode-wrap {
-  margin: 0 auto;
+/* line 335, ../sass/common/_body.scss */
+.security-2.fa-stack {
+  width: 1em;
 }
-/* line 336, ../sass/common/_body.scss */
-.qrcode-wrap #qrcode_network {
-  margin: 20px auto 0 auto;
-  text-align: center;
+/* line 338, ../sass/common/_body.scss */
+.security-2 .fa-stack-1x, .security-2 .fa-stack-1x {
+  text-align: left;
 }
-/* line 340, ../sass/common/_body.scss */
-.qrcode-wrap #qrcode_network img {
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 200px;
+/* line 341, ../sass/common/_body.scss */
+.security-2 .icon-bottom {
+  color: darkgray;
+}
+/* line 344, ../sass/common/_body.scss */
+.security-2 .icon-top {
+  color: green;
+  left: 4px;
+  top: 4px;
+}
+/* line 349, ../sass/common/_body.scss */
+.security-2.false .icon-top {
+  color: #a94442;
 }
 
 /* Header
@@ -16061,12 +16065,11 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* line 18, ../sass/modules/_control.scss */
 input[type="number"].input_number {
-  display: inline-block;
   -moz-appearance: textfield;
   width: 5em;
 }
 
-/* line 24, ../sass/modules/_control.scss */
+/* line 23, ../sass/modules/_control.scss */
 .diabled_label {
   color: darkgrey;
 }
