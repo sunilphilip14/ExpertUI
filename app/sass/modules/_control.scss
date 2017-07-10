@@ -25,4 +25,14 @@ input[type="number"].input_number {
     color: darkgrey;
 }
 
-/* TODO !!! check dsk_1 field to make red border on min-max invalidation */
+/* S2 DSK window
+-------------------------------------------------- */
+
+.dsk-wrap{
+    margin: $spacing;
+    text-align: center;
+    .dsk-block{
+        padding: 0 2px;
+        font-size: 120%
+    }
+}

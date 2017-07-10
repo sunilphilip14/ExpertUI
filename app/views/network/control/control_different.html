@@ -49,8 +49,11 @@
             </button>
         </span>
         <!-- S2 DSK -->
-        <button class="btn btn-default" ng-click="handleModal('networkS2Modal')">S2 DSK</button>
-
+        <button class="btn btn-default"
+                ng-show="_.size(controlDh.controller.publicKeyPin)"
+                ng-click="handleModal('networkS2Modal')">
+            S2 DSK
+        </button>
         <!-- Controller change -->
         <div class="cfg-block-top-border" ng-if="cfg.app_type == 'default'" ng-include="'app/views/network/control/control_network_maintance_ctrlchange.html'"></div>
 
@@ -106,7 +109,7 @@
     </div><!-- /#modal successNetworkIncludeModal -->
 
     <!-- inclusionVerifyDSKModal -->
-    <div id="inclusionVerifyDSKModal" class="appmodal" ng-if_="modalArr.networkS2Modal">
+    <div id="inclusionVerifyDSKModal" class="appmodal" ng-if="modalArr.networkS2Modal">
         <div class="appmodal-in">
             <form name="dskForm">
                 <div class="appmodal-header">
@@ -116,24 +119,19 @@
                 </div>
                 <div class="appmodal-body modal-h-600 form-group form-inline" ng-controller="S2DskController">
                     <!-- name -->
-                    <input name="dsk_pin" id="dsk_pin" type="number" size="5" class="form-control input_number input-valid-{{dskForm.dsk_pin.$valid}}" min="0" max="65533" ng-show="controlDh.inclusion.input.publicKeyAuthenticationRequired"
-                           ng-model="controlDh.inclusion.input.dskPin" required />
-
-                    <input name="dsk_1" id="dsk_1" type="number" size="5" class="form-control input_number" ng-value="dskBlock(controlDh.inclusion.input.publicKey, 1)" disabled="true" ng-show="!controlDh.inclusion.input.publicKeyAuthenticationRequired" />
-                    -
-                    <input name="dsk_2" id="dsk_2" type="number" size="5" class="form-control input_number" ng-value="dskBlock(controlDh.inclusion.input.publicKey, 2)" disabled="true" />
-                    -
-                    <input name="dsk_3" id="dsk_3" type="number" size="5" class="form-control input_number" ng-value="dskBlock(controlDh.inclusion.input.publicKey, 3)" disabled="true" />
-                    -
-                    <input name="dsk_4" id="dsk_4" type="number" size="5" class="form-control input_number" ng-value="dskBlock(controlDh.inclusion.input.publicKey, 4)" disabled="true" />
-                    -
-                    <input name="dsk_5" id="dsk_5" type="number" size="5" class="form-control input_number" ng-value="dskBlock(controlDh.inclusion.input.publicKey, 5)" disabled="true" />
-                    -
-                    <input name="dsk_6" id="dsk_6" type="number" size="5" class="form-control input_number" ng-value="dskBlock(controlDh.inclusion.input.publicKey, 6)" disabled="true" />
-                    -
-                    <input name="dsk_7" id="dsk_7" type="number" size="5" class="form-control input_number" ng-value="dskBlock(controlDh.inclusion.input.publicKey, 7)" disabled="true" />
-                    -
-                    <input name="dsk_8" id="dsk_8" type="number" size="5" class="form-control input_number" ng-value="dskBlock(controlDh.inclusion.input.publicKey, 8)" disabled="true" />
+                    <!--<input name="dsk_pin" id="dsk_pin" type="number" size="5" class="form-control input_number input-valid-{{dskForm.dsk_pin.$valid}}" min="0" max="65533" ng-show="controlDh.inclusion.input.publicKeyAuthenticationRequired"
+                           ng-model="controlDh.inclusion.input.dskPin" required />-->
+                    <div class="dsk-wrap">
+                        <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 0)|| ''}}</span>
+                        <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 1)}}</span>
+                        <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 2)}}</span>
+                        <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 3)}}</span>
+                        <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 4)}}</span>
+                        <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 5)}}</span>
+                        <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 6)}}</span>
+                        <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 7)}}</span>
+                        <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 8)}}</span>
+                    </div>
                     <div class="qrcode-wrap">
                         <div id="qrcode_network"></div>
                     </div>
