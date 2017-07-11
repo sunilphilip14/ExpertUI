@@ -21,8 +21,7 @@
         <!-- included in network - disabled-->
         <span ng-if="controlDh.controller.isRealPrimary && (controlDh.controller.hasDevices)">
             <p class="input-help">{{_t('device_included_info')}}</p>
-            <button class="btn btn-primary" id="btn_learn_start_2" disabled
-            >{{_t('leave_network')}}
+            <button class="btn btn-primary" id="btn_learn_start_2" disabled>{{_t('leave_network')}}
             </button>
         </span>
 
@@ -50,7 +49,7 @@
         </span>
         <!-- S2 DSK -->
         <button class="btn btn-default"
-                ng-show="_.size(controlDh.controller.publicKeyPin)"
+                ng-show="_.size(controlDh.controller.publicKey) && !controlDh.controller.isRealPrimary"
                 ng-click="handleModal('networkS2Modal')">
             S2 DSK
         </button>
@@ -119,8 +118,9 @@
                 </div>
                 <div class="appmodal-body modal-h-600 form-group form-inline" ng-controller="S2DskController">
                     <!-- name -->
-                    <!--<input name="dsk_pin" id="dsk_pin" type="number" size="5" class="form-control input_number input-valid-{{dskForm.dsk_pin.$valid}}" min="0" max="65533" ng-show="controlDh.inclusion.input.publicKeyAuthenticationRequired"
-                           ng-model="controlDh.inclusion.input.dskPin" required />-->
+                    <div class="qrcode-wrap">
+                        <div id="qrcode_network"></div>
+                    </div>
                     <div class="dsk-wrap">
                         <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 0)|| ''}}</span>
                         <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 1)}}</span>
@@ -132,19 +132,13 @@
                         <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 7)}}</span>
                         <span class="dsk-block">{{dskBlock(controlDh.controller.publicKey, 8)}}</span>
                     </div>
-                    <div class="qrcode-wrap">
-                        <div id="qrcode_network"></div>
-                    </div>
+
                 </div>
                 <div class="appmodal-footer">
                     <!-- Cancel -->
                     <button type="button" class="btn btn-default" ng-click="handleModal()">
                         <i class="fa fa-times text-danger"></i> <span class="btn-name">{{_t('btn_cancel')}}</span>
                     </button>
-                    <!-- Confirm -->
-                    <!--<button type="button" class="btn btn-submit" ng-click="handleInclusionVerifyDSK(true)">
-                        <i class="fa fa-check"></i> <span class="btn-name">{{_t('confirm')}}</span>
-                    </button>-->
                 </div>
             </form>
         </div>
