@@ -1,4 +1,9 @@
 {
+  "timedout": "Timed Out",
+  "no_s2_channel": "No Security Channel established",
+  "wait_key_veriffication": "Wait for Key verification ....",
+  "auth_successful": "Authentication successful",
+  "auth_failed": "Authentication failed",
   "confirm": "Confirm",
   "remain": "remain",
   "S0": "S0",
