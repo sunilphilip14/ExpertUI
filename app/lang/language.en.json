@@ -1,5 +1,10 @@
 {
   "--- newtrans": "---",
+ "timedout": "Timed Out",
+ "no_s2_channel": "No Security Channel established",
+ "wait_key_veriffication": "Wait for Key verification ....",
+ "auth_successful": "Authentication successful",
+ "auth_failed": "Authentication failed",
  "---": "---",
  "keys": "Keys",
  "confirm": "Confirm",
