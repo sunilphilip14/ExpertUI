@@ -13672,6 +13672,38 @@ a:focus, .order-by:focus {
   color: #a94442;
 }
 
+/* Resizer
+-------------------------------------------------- */
+/* line 6, ../sass/common/_resizer.scss */
+.show-bottom-true #main_content {
+  position: absolute;
+  top: 0;
+  bottom: 606px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+}
+/* line 14, ../sass/common/_resizer.scss */
+.show-bottom-true #bottom_content {
+  padding: 20px;
+  position: absolute;
+  height: 600px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+}
+/* line 25, ../sass/common/_resizer.scss */
+.show-bottom-true #bottom_content_resizer {
+  position: absolute;
+  height: 6px;
+  bottom: 600px;
+  left: 0;
+  right: 0;
+  background-color: #9fd8ef;
+  cursor: n-resize;
+}
+
 /* Header
 -------------------------------------------------- */
 /* line 3, ../sass/common/_header.scss */
