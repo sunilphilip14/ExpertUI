@@ -1,0 +1,34 @@
+/* Resizer
+-------------------------------------------------- */
+$bottom-content-h: 600px;
+$resizer-h: 6px;
+.show-bottom-true{
+  #main_content{
+    position: absolute;
+    top: 0;
+    bottom: $bottom-content-h + $resizer-h;
+    left: 0;
+    right: 0;
+    overflow: auto;
+  }
+  #bottom_content {
+    padding: $spacing-double;
+    position: absolute;
+    height: $bottom-content-h;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+  }
+
+
+  #bottom_content_resizer {
+    position: absolute;
+    height: $resizer-h;
+    bottom: $bottom-content-h;
+    left: 0;
+    right: 0;
+    background-color: $app-border-color;
+    cursor: n-resize;
+  }
+}

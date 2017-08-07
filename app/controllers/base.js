@@ -17,6 +17,7 @@ appController.controller('BaseController', function ($scope, $rootScope, $cookie
     // Global config
     $scope.cfg = cfg;
     $scope.isOnline = false;
+    $scope.showBottomContent = false;
     $scope.nowDate = new Date();
     $scope.loading = false;
     $scope.alert = {message: false, status: 'is-hidden', icon: false};
@@ -131,6 +132,13 @@ appController.controller('BaseController', function ($scope, $rootScope, $cookie
         $route.reload();
     };
 
+
+    $scope.handleBottomContent = function(){
+        console.log('$scope.handleBottomContent')
+        $scope.showBottomContent = !$scope.showBottomContent;
+        console.log($scope.showBottomContent)
+        //$route.reload();
+    };
     $scope.naviExpanded = {};
     /**
      * Expand/collapse navigation

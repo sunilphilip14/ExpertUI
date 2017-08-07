@@ -99,7 +99,7 @@
     <!-- /build -->
 </head>
 <body id="page_{{getBodyId()}}"
-      class="is-mobile-{{isMobile}} custom-ip-{{cfg.custom_ip}} app-type-{{cfg.app_type}}">
+      class="is-mobile-{{isMobile}} custom-ip-{{cfg.custom_ip}} app-type-{{cfg.app_type}} show-bottom-{{showBottomContent}}">
 <!-- Header -->
 <div id="header" ng-if="getBodyId()">
     <!-- Main navigation -->
@@ -293,6 +293,17 @@
         </div>
     </div>
     <div id="view_content" ng-hide="cfg.route.fatalError.hide" ng-view></div>
+
+</div>
+<!-- Bottom content -->
+<div ng-if="showBottomContent">
+<div id="bottom_content" ng-include="'app/views/network/queue.html'"></div>
+<div id="bottom_content_resizer"
+     resizer="horizontal"
+     resizer-height="6"
+     resizer-top="#main_content"
+     resizer-bottom="#bottom_content">
+</div>
 </div>
 <div class="clearfix"></div>
 
