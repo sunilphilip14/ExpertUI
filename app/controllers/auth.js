@@ -105,7 +105,7 @@ appController.controller('InitInstallerController', function ($scope, $location,
         dataService.postApi('installer_auth', input).then(function (response) {
             if (!response.data.data.result) {
                 $scope.auth.alert = {
-                    message: $scope._t('cit_check_login') + ' ' + response.data.data.result_message,
+                    message: $scope._t(response.data.data.key) + ' ' + response.data.data.result_message,
                     status: 'alert-danger',
                     icon: 'fa-exclamation-triangle'
                 };
@@ -165,10 +165,11 @@ appController.controller('InitInstallerController', function ($scope, $location,
  * @class AuthController
  *
  */
-appController.controller('AuthController', function ($location, $window) {
+appController.controller('AuthController', function ($location, $window, $timeout) {
     $location.path('/home');
-    $window.location.reload();
-
+    $timeout(function() {
+        $window.location.reload();
+    }, 1);
 });
 
 /**

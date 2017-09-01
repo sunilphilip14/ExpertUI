@@ -17,6 +17,11 @@
     <script src="vendor/underscore/underscore-1.8.3/underscore-min.js"></script>
     <!-- Alertify -->
     <script src="vendor/alertify/alertify.min.js"></script>
+    <!-- Route map  -->
+    <script src="vendor/routemap/d3.v4.min.js"></script>
+    <script src="vendor/routemap/ZWaveAnalytics.min.js"></script>
+    <script src="vendor/routemap/ZWaveRouteMapDraw.min.js"></script>
+
     <!-- Cytoscype.js -->
     <script src="vendor/cytoscape/cytoscape.min.js"></script>
     <!-- QR code -->
@@ -81,6 +86,7 @@
     <script src="app/controllers/uzb.js"></script>
     <script src="app/controllers/zniffer.js"></script>
     <script src="app/controllers/spectrum.js"></script>
+    <script src="app/controllers/routemap.js"></script>
     <script src="app/controllers/networkmap.js"></script>
     <script src="app/controllers/home.js"></script>
     <script src="app/controllers/configuration.js"></script>
@@ -182,8 +188,11 @@
                                     <a href="#network/timing" ng-class="isActive('timing',2)">{{ _t('nav_timing_info') }}</a>
                                 </li>
                                 <li>
-                                    <a href="#network/map" dng-class="isActive('map',2)">{{ _t('nav_network_map') }}</a>
+                                    <a href="#network/routemap" dng-class="isActive('routemap',2)">{{ _t('route_map') }}</a>
                                 </li>
+                                <!--<li>
+                                    <a href="#network/map" dng-class="isActive('map',2)">{{ _t('nav_network_map') }}</a>
+                                </li>-->
                                 <li>
                                     <a href="#network/linkstatus" ng-class="isActive('linkstatus',2)">{{ _t('nav_linkhealth_info') }}</a>
                                 </li>

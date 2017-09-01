@@ -61,6 +61,10 @@ module.exports = function (grunt) {
                     'vendor/upload/angular-file-upload-shim.min.js',
                     'vendor/alertify/alertify.min.js',
                     'vendor/qrcode/qrcode.min.js',
+                    // Routemap
+                    'vendor/routemap/d3.v4.min.js',
+                    'vendor/routemap/ZWaveAnalytics.min.js',
+                    'vendor/routemap/ZWaveRouteMapDraw.min.js',
                     // Angular
                     'vendor/angular/angular-1.2.14/angular.min.js',
                     'vendor/upload/angular-file-upload.min.js',
@@ -119,6 +123,7 @@ module.exports = function (grunt) {
                     'app/controllers/uzb.js',
                     'app/controllers/zniffer.js',
                     'app/controllers/spectrum.js',
+                    'app/controllers/routemap.js',
                     'app/controllers/networkmap.js',
                     'app/controllers/home.js',
                     'app/controllers/configuration.js',
@@ -272,6 +277,12 @@ module.exports = function (grunt) {
                             match: /'dev_host': \[([^\]]+)]/g,
                             replacement: function () {
                                 return '\'dev_host\': \[\]';
+                            }
+                        },
+                        {
+                            match: /'interval': ([0-9a-zA-Z]+)/g,
+                            replacement: function () {
+                                return '\'interval\': 1000';
                             }
                         },
                         {

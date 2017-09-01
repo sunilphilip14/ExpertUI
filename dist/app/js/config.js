@@ -8,8 +8,8 @@ var config_data = {
         'environment': 'live',
         'dev_host': [],
         'app_name': 'Z-Wave Expert S2',
-        'app_version': '1.4.0-RC-2',
-        'app_built': '12-07-2017 08:49:58',
+        'app_version': '1.3.1-RC-8',
+        'app_built': '01-09-2017 21:34:52',
         'app_id': 'ExpertUI',
         'custom_ip': false,
         'user_field': 'USERXXXX',
@@ -56,6 +56,7 @@ var config_data = {
         'get_network_statistics': '/ZWaveAPI/GetStatisticsData', // get network statistics
 
         // Other APIs
+        'packet_log': '/ZWaveAPI/PacketLog', // Get Packet log
         'session': '/ZAutomation/api/v1/session',
         'zwave_list': '/ZWave/list', // Zwave list of dongles
         'firmwareupdate': '/ZAutomation/api/v1/system/webif-access',
@@ -64,6 +65,8 @@ var config_data = {
         'wifi_settings': '/ZAutomation/api/v1/system/wifi/settings', // Set wifi settings ssid and password
         'login': '/ZAutomation/api/v1/login',// Get time
         'instances': '/ZAutomation/api/v1/instances',
+        'upload_file': '/ZAutomation/api/v1/upload/file', // upload a file
+        'load_image': '/ZAutomation/api/v1/load/image/', // load image from automation storage
         'app_built_info': 'app/info.json',// App build info
         'post_report_url': 'https://service.z-wave.me/report/', // Post report url
         'runjs_url': '/JS/Run/', // Url for running JS
@@ -283,6 +286,12 @@ var config_data = {
             },
             'restore_from_backup': {
                 extension: ['zbk']
+            },
+            'routemap': {
+                size: 512000, //Bytes
+                type: ['image/jpeg'],
+                extension: ['jpg'],
+                dimension: '200 x 200'//px
             }
         },
         // List of the find hosts

@@ -113,7 +113,7 @@ appController.controller('ZnifferController', function ($scope, $interval, $time
             //var time = 1472729277;//(updateTime ? '/' + updateTime : '');
             //var time = updateTime;//(updateTime ? '/' + updateTime : '');
 
-            dataService.getApi('zniffer_url',null,true).then(function (response) {
+            dataService.refreshApi('zniffer_url',null,true).then(function (response) {
                 $scope.zniffer.updateTime = response.data.updateTime;
                 //var znifferData = deviceService.setZnifferData(response.data.data);
                 var znifferData = response.data.data;
@@ -565,12 +565,12 @@ appController.controller('ZnifferRSSIMeterController', function ($scope, $interv
                 chartData1 = 0,
                 chartData2 = 0;
 
-            if (typeof parseInt(rssiData.data.data[0].channel1) === 'number') {
-                chartData1 = _.isNull(rssiData.data.data[0].channel1)? $scope.rssi.chartData1 : parseInt(rssiData.data.data[0].channel1);
+            if (typeof parseInt(rssiData.data.data.channel1) === 'number') {
+                chartData1 = _.isNull(rssiData.data.data.channel1)? $scope.rssi.chartData1 : parseInt(rssiData.data.data.channel1);
             }
 
-            if (typeof parseInt(rssiData.data.data[0].channel2) === 'number') {
-                chartData2 = _.isNull(rssiData.data.data[0].channel2) ? $scope.rssi.chartData2 : parseInt(rssiData.data.data[0].channel2);
+            if (typeof parseInt(rssiData.data.data.channel2) === 'number') {
+                chartData2 = _.isNull(rssiData.data.data.channel2) ? $scope.rssi.chartData2 : parseInt(rssiData.data.data.channel2);
             }
 
             $scope.rssi.chartData1 = chartData1;
